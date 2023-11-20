@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public  int                 Countdown = 3;
     public  List<GameObject>    HPs;
     private int                 HPcount;
+    public  PlayerManager       player;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            player.health.TakeDamage(4);
+        }
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            player.PlaySequence();
+        }
     }
 
     public void WinButtonPressed() {
