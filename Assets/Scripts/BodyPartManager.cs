@@ -5,6 +5,10 @@ using UnityEngine;
 public class BodyPartManager : MonoBehaviour
 {
     public  string  partName;
+    public  int     attributedMind;
+    public  int     attributedStrength;
+    public  RoundStats effectPerMind;
+    public  RoundStats effectPerStrength;
 
     // Start is called before the first frame update
     void Start()

@@ -32,6 +32,15 @@ public class GameManager : MonoBehaviour
         {
             player.PlaySequence();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            player.PutRessource(Ressource.mind, player.body.legs);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            player.RemoveRessource(Ressource.mind, player.body.legs);
+        }
     }
 
     public void WinButtonPressed() {
