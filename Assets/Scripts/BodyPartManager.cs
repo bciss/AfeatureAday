@@ -5,8 +5,7 @@ using UnityEngine;
 public class BodyPartManager : MonoBehaviour
 {
     public  string  partName;
-    public  int     attributedMind;
-    public  int     attributedStrength;
+    public  StatAttributionManager    attribution;
     public  RoundStats effectPerMind;
     public  RoundStats effectPerStrength;
 

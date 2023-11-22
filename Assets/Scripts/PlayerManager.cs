@@ -117,38 +117,45 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void PutRessource(Ressource ressource, BodyPartManager bodyPart)
+    public bool PutRessource(Ressource ressource, BodyPartManager bodyPart)
     {
         if (ressource == Ressource.mind && mindBar.container > 0)
         {
             mindBar.Remove();
-            bodyPart.attributedMind++;
+            bodyPart.attribution.mind++;
             roundStats.Add(bodyPart.effectPerMind);
+            statDisplay.UpdateSats(roundStats);
+            return (true);
         } else if (ressource == Ressource.strength && strengthBar.container > 0)
         {
             strengthBar.Remove();
-            bodyPart.attributedStrength++;
+            bodyPart.attribution.strength++;
             roundStats.Add(bodyPart.effectPerStrength);
-        }
             statDisplay.UpdateSats(roundStats);
-
+            return (true);
+        }
+        return (false);
     }
     
 
-    public void RemoveRessource(Ressource ressource, BodyPartManager bodyPart)
+    public bool RemoveRessource(Ressource ressource, BodyPartManager bodyPart)
     {
-        if (ressource == Ressource.mind && mindBar.container < mindBar.maxContainer)
+        if (ressource == Ressource.mind && mindBar.container < mindBar.maxContainer && bodyPart.attribution.mind > 0)
         {
             mindBar.Add();
-            bodyPart.attributedMind--;
+            bodyPart.attribution.mind--;
             roundStats.Remove(bodyPart.effectPerMind);
-        } else if (ressource == Ressource.strength && strengthBar.container < strengthBar.maxContainer)
+            statDisplay.UpdateSats(roundStats);
+            return (true);
+        } else if (ressource == Ressource.strength && strengthBar.container < strengthBar.maxContainer && bodyPart.attribution.strength > 0)
         {
             strengthBar.Add();
-            bodyPart.attributedStrength--;
+            bodyPart.attribution.strength--;
             roundStats.Remove(bodyPart.effectPerStrength);
-        }
             statDisplay.UpdateSats(roundStats);
+            return (true);
+        }
+        return (false);
     }
 }
 
