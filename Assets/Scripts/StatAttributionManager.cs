@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StatAttributionManager : MonoBehaviour
 {
@@ -11,12 +12,17 @@ public class StatAttributionManager : MonoBehaviour
     public Button mindDownButton;
     public Button strengthUpButton;
     public Button strengthDownButton;
+    public TMP_Text mindText;
+    public TMP_Text strengthText;
     public int mind;
     public int strength;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        mindText.text = mind.ToString();
+        strengthText.text = strength.ToString();
         mindUpButton.onClick.AddListener(() => AddMind());
         mindDownButton.onClick.AddListener(() => RemoveMind());
         strengthUpButton.onClick.AddListener(() => AddStrength());
@@ -35,6 +41,7 @@ public class StatAttributionManager : MonoBehaviour
         {
             mind++;
         }
+        mindText.text = mind.ToString();
     }
 
     private void AddStrength()
@@ -43,6 +50,7 @@ public class StatAttributionManager : MonoBehaviour
         {
             strength++;
         }
+        strengthText.text = strength.ToString();
     }
     private void RemoveMind()
     {
@@ -50,6 +58,7 @@ public class StatAttributionManager : MonoBehaviour
         {
             mind--;
         }
+        mindText.text = mind.ToString();
     }
     private void RemoveStrength()
     {
@@ -57,5 +66,6 @@ public class StatAttributionManager : MonoBehaviour
         {
             strength--;
         }
+        strengthText.text = strength.ToString();
     }
 }

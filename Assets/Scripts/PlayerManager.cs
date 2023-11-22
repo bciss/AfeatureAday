@@ -122,14 +122,12 @@ public class PlayerManager : MonoBehaviour
         if (ressource == Ressource.mind && mindBar.container > 0)
         {
             mindBar.Remove();
-            bodyPart.attribution.mind++;
             roundStats.Add(bodyPart.effectPerMind);
             statDisplay.UpdateSats(roundStats);
             return (true);
         } else if (ressource == Ressource.strength && strengthBar.container > 0)
         {
             strengthBar.Remove();
-            bodyPart.attribution.strength++;
             roundStats.Add(bodyPart.effectPerStrength);
             statDisplay.UpdateSats(roundStats);
             return (true);
@@ -143,14 +141,12 @@ public class PlayerManager : MonoBehaviour
         if (ressource == Ressource.mind && mindBar.container < mindBar.maxContainer && bodyPart.attribution.mind > 0)
         {
             mindBar.Add();
-            bodyPart.attribution.mind--;
             roundStats.Remove(bodyPart.effectPerMind);
             statDisplay.UpdateSats(roundStats);
             return (true);
         } else if (ressource == Ressource.strength && strengthBar.container < strengthBar.maxContainer && bodyPart.attribution.strength > 0)
         {
             strengthBar.Add();
-            bodyPart.attribution.strength--;
             roundStats.Remove(bodyPart.effectPerStrength);
             statDisplay.UpdateSats(roundStats);
             return (true);
