@@ -12,7 +12,7 @@ public class StatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UpdateStat(statPercent);
     }
 
     // Update is called once per frame
